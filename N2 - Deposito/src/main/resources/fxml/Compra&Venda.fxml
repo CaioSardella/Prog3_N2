@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.Controller.CompraController">
+  <tabs>
+    <Tab text="Compras/Vendas">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0">
+               <children>
+                  <VBox fx:id="Cad_Compra" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Código de Indentificação:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" top="25.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="TxtIdCompra" disable="true">
+                           <VBox.margin>
+                              <Insets left="185.0" right="15.0" top="-22.5" />
+                           </VBox.margin>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID do Fornecedor:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" top="15.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="TxtIdFornecedorCompra" onAction="#CompletaNomeCompra">
+                           <VBox.margin>
+                              <Insets left="15.0" right="185.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Text fill="#0000006f" strokeType="OUTSIDE" strokeWidth="0.0" text="Pressione &quot;Enter&quot; para Filtrar">
+                           <VBox.margin>
+                              <Insets left="15.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do Fornecedor:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" top="15.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="TxtNomeFornecedorCompra" disable="true">
+                           <VBox.margin>
+                              <Insets left="15.0" right="15.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total do Pedido:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" top="35.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="TxtTotalPedidoCompra" disable="true">
+                           <VBox.margin>
+                              <Insets left="15.0" right="185.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <ToolBar maxHeight="50.0" maxWidth="250.0" minHeight="50.0" minWidth="250.0" prefHeight="50.0" prefWidth="250.0">
+                           <items>
+                              <Button fx:id="BtnIniciarCompra" minWidth="90.0" mnemonicParsing="false" onAction="#BtnIniciarCompra_Action" text="Iniciar Pedido" />
+                              <Button fx:id="BtnExcluirCompra" minWidth="70.0" mnemonicParsing="false" onAction="#BtnExcluirCompra_Action" text="Excluir" />
+                              <Button fx:id="BtnCancelarCompra" minWidth="70.0" mnemonicParsing="false" onAction="#BtnCancelarCompra_Action" text="Cancelar" />
+                           </items>
+                           <VBox.margin>
+                              <Insets top="35.0" />
+                           </VBox.margin>
+                        </ToolBar>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="Cad_Venda" layoutX="10.0" layoutY="10.0" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Código de Indentificação:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" top="25.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="TxtIdVenda" disable="true">
+                           <VBox.margin>
+                              <Insets left="185.0" right="15.0" top="-22.5" />
+                           </VBox.margin>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID do Cliente:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" top="15.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="TxtIdClienteVenda" onAction="#CompletaNomeVenda">
+                           <VBox.margin>
+                              <Insets left="15.0" right="185.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Text fill="#0000006f" strokeType="OUTSIDE" strokeWidth="0.0" text="Pressione &quot;Enter&quot; para Filtrar">
+                           <VBox.margin>
+                              <Insets left="15.0" />
+                           </VBox.margin>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do Titular:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" top="15.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="TxtNomeClienteVenda" disable="true">
+                           <VBox.margin>
+                              <Insets left="15.0" right="15.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total do Pedido:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" top="35.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="TxtTotalPedidoVenda" disable="true">
+                           <VBox.margin>
+                              <Insets left="15.0" right="185.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <ToolBar maxHeight="50.0" maxWidth="250.0" minHeight="50.0" minWidth="250.0" prefHeight="50.0" prefWidth="250.0">
+                           <items>
+                              <Button fx:id="BtnIniciarVenda" minWidth="90.0" mnemonicParsing="false" onAction="#BtnIniciarVenda_Action" text="Iniciar Pedido" />
+                              <Button fx:id="BtnExcluirVenda" minWidth="70.0" mnemonicParsing="false" onAction="#BtnExcluirVenda_Action" text="Excluir" />
+                              <Button fx:id="BtnCancelarVenda" minWidth="70.0" mnemonicParsing="false" onAction="#BtnCancelarVenda_Action" text="Cancelar" />
+                           </items>
+                           <VBox.margin>
+                              <Insets top="35.0" />
+                           </VBox.margin>
+                        </ToolBar>
+                     </children>
+                  </VBox>
+                  <VBox fx:id="Cad_Caixa" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Data:">
+                           <VBox.margin>
+                              <Insets left="15.0" top="15.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="TxtDataCaixa" disable="true">
+                           <VBox.margin>
+                              <Insets left="15.0" right="155.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Valor de Compras:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" top="15.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="TxtCaixaCompra" disable="true">
+                           <VBox.margin>
+                              <Insets left="15.0" right="105.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Valor de Vendas:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" top="15.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="TxtCaixaVenda" disable="true">
+                           <VBox.margin>
+                              <Insets left="15.0" right="105.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Saldo Final:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" top="15.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="TxtCaixaSoma" disable="true">
+                           <VBox.margin>
+                              <Insets left="15.0" right="105.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                     </children>
+                  </VBox>
+                  <VBox maxHeight="625.0" maxWidth="200.0" minHeight="625.0" minWidth="200.0" prefHeight="625.0" prefWidth="200.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="600.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione a Operação que deseja realizar" textAlignment="JUSTIFY" wrappingWidth="172.388671875">
+                           <VBox.margin>
+                              <Insets left="15.0" right="15.0" top="20.0" />
+                           </VBox.margin>
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <RadioButton fx:id="Radio_Compra" mnemonicParsing="false" onAction="#Radio_Compra_Selected" text="Compra">
+                           <VBox.margin>
+                              <Insets left="50.0" top="25.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <RadioButton fx:id="Radio_Venda" mnemonicParsing="false" onAction="#Radio_Venda_Selected" text="Venda">
+                           <VBox.margin>
+                              <Insets left="50.0" top="15.0" />
+                           </VBox.margin>
+                        </RadioButton>
+                        <Button fx:id="BtnFecharCaixa" maxWidth="150.0" minWidth="150.0" mnemonicParsing="false" onAction="#BtnFecharCaixa_Action" prefWidth="150.0" text="Fechar Caixa do Dia">
+                           <VBox.margin>
+                              <Insets left="25.0" top="100.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <HBox fx:id="HBLstPedido" maxHeight="600.0" maxWidth="350.0" minHeight="600.0" minWidth="350.0" prefHeight="600.0" prefWidth="350.0" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <ListView fx:id="LstPedido" maxHeight="575.0" maxWidth="300.0" minHeight="575.0" minWidth="300.0" onKeyPressed="#LstPedido_KeyPressed" onMouseClicked="#LstPedido_MouseClicked" prefHeight="575.0" prefWidth="300.0">
+                           <HBox.margin>
+                              <Insets left="25.0" right="25.0" top="12.5" />
+                           </HBox.margin>
+                        </ListView>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="HBLstCaixa" layoutX="450.0" layoutY="10.0" maxHeight="600.0" maxWidth="350.0" minHeight="600.0" minWidth="350.0" prefHeight="600.0" prefWidth="350.0" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <ListView fx:id="LstCaixa" maxHeight="575.0" maxWidth="300.0" minHeight="575.0" minWidth="300.0" prefHeight="575.0" prefWidth="300.0">
+                           <HBox.margin>
+                              <Insets left="25.0" right="25.0" top="12.5" />
+                           </HBox.margin>
+                        </ListView>
+                     </children>
+                  </HBox>
+                  <VBox fx:id="Cad_item" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Código de Indentificação:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" top="25.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="TxtItemId" disable="true">
+                           <VBox.margin>
+                              <Insets left="185.0" right="15.0" top="-22.5" />
+                           </VBox.margin>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID do Produto:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" top="15.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="TxtIdProdutoItem" onAction="#TxtIdProdutoItem_Action">
+                           <VBox.margin>
+                              <Insets left="15.0" right="155.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nome do Produto:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" top="15.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="TxtNomeProdutoItem" disable="true">
+                           <VBox.margin>
+                              <Insets left="15.0" right="80.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Preço do Produto:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" top="15.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="TxtPrecoProdutoItem" disable="true">
+                           <VBox.margin>
+                              <Insets left="15.0" right="155.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Quantidade:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" top="15.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="TxtQtdProdutoItem" onAction="#TxtQtdProdutoItem_Action">
+                           <VBox.margin>
+                              <Insets left="15.0" right="155.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Preço Total:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="15.0" top="15.0" />
+                           </VBox.margin>
+                        </Text>
+                        <TextField fx:id="TxtPrecoTotalItem" disable="true">
+                           <VBox.margin>
+                              <Insets left="15.0" right="155.0" top="5.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <ToolBar maxHeight="50.0" maxWidth="250.0" minHeight="50.0" minWidth="250.0" prefHeight="50.0" prefWidth="250.0">
+                           <items>
+                              <Button fx:id="BtnAdicionarItem" minWidth="95.0" mnemonicParsing="false" onAction="#BtnAdicionarItem_Action" text="Adicionar Item" />
+                              <Button fx:id="BtnItemExcluir" minWidth="69.0" mnemonicParsing="false" onAction="#BtnItemExcluir_Action" text="Excluir" />
+                              <Button fx:id="BtnItemCancelar" minWidth="69.0" mnemonicParsing="false" onAction="#BtnItemCancelar_Action" text="Cancelar" />
+                           </items>
+                           <VBox.margin>
+                              <Insets top="35.0" />
+                           </VBox.margin>
+                        </ToolBar>
+                        <Button fx:id="BtnFinalizarPedido" maxWidth="200.0" minWidth="200.0" mnemonicParsing="false" onAction="#BtnFinalizarPedido_Action" prefWidth="200.0" text="Finalizar Pedido">
+                           <VBox.margin>
+                              <Insets left="25.0" top="25.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+                  <HBox fx:id="HBLstItem" maxHeight="600.0" maxWidth="350.0" minHeight="600.0" minWidth="350.0" prefHeight="600.0" prefWidth="350.0" visible="false" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="450.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="10.0">
+                     <children>
+                        <ListView fx:id="LstItem" maxHeight="575.0" maxWidth="300.0" minHeight="575.0" minWidth="300.0" onKeyPressed="#LstItem_KeyPressed" onMouseClicked="#LstItem_MouseClicked" prefHeight="575.0" prefWidth="300.0" visible="false">
+                           <HBox.margin>
+                              <Insets left="25.0" right="25.0" top="12.5" />
+                           </HBox.margin>
+                        </ListView>
+                     </children>
+                  </HBox>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>

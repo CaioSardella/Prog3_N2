@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="150.0" maxWidth="200.0" minHeight="150.0" minWidth="200.0" prefHeight="150.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.femass.Controller.MainController">
+   <children>
+      <Button fx:id="BtnCompraVenda" layoutY="60.0" maxWidth="200.0" minWidth="200.0" mnemonicParsing="false" onAction="#BtnCompraVenda_Action" prefWidth="200.0" text="Abrir Compras &amp; Vendas" />
+      <Button fx:id="BtnCadastroConsulta" layoutY="100.0" maxWidth="200.0" minWidth="200.0" mnemonicParsing="false" onAction="#BtnCadastroConsulta_Action" prefWidth="200.0" text="Abrir Cadastros &amp; Consultas" />
+      <Text layoutY="10.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Selecione no Menu a Função que deseja acessar:" wrappingWidth="190.91015625" x="10.0" y="10.0" />
+   </children>
+</Pane>
