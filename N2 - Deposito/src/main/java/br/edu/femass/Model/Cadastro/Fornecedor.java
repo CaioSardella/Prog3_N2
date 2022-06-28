@@ -10,9 +10,6 @@ public class Fornecedor extends Usuario {
     protected String endereco;
     protected String numCasa;
 
-    public Fornecedor(){
-        this.transacao = false;
-    }
 
     public String toString(){
         return "(Fornecedor) "+ this.id +". "+this.nome;

@@ -381,6 +381,7 @@ public class CadastroController implements Initializable {
 
         if (usuario==null) return;
 
+
         try {
             usuarioDao.excluir(usuario);
         } catch (Exception e) {

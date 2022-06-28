@@ -6,7 +6,7 @@ import lombok.Data;
 public abstract class Usuario {
     public Long id;
     public String nome;
-    public boolean transacao;
+
 
     public String toString() {
         return this.nome;

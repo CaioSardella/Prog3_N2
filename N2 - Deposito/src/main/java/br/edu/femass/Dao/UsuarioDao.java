@@ -18,7 +18,6 @@ public class UsuarioDao extends DaoPostgres implements  Dao<Usuario>{
         String sql = "select " +
                 "usuario.id as id, " +
                 "usuario.nome as nome, " +
-                "usuario.transacao as transacao, " +
                 "cliente.cpf as cpf " +
                 "from usuario inner join cliente on usuario.id = cliente.id_usuario " +
                 "order by usuario.nome asc";
@@ -31,7 +30,6 @@ public class UsuarioDao extends DaoPostgres implements  Dao<Usuario>{
             Cliente cliente = new Cliente();
             cliente.setId(rs.getLong("id"));
             cliente.setNome(rs.getString("nome"));
-            cliente.setTransacao(rs.getBoolean("transacao"));
             cliente.setCpf(rs.getString("cpf"));
             usuarios.add(cliente);
         }
@@ -39,7 +37,6 @@ public class UsuarioDao extends DaoPostgres implements  Dao<Usuario>{
         sql = "select " +
                 "usuario.id as id, " +
                 "usuario.nome as nome, " +
-                "usuario.transacao as transacao, " +
                 "fornecedor.cnpj as cnpj,  " +
                 "fornecedor.telefone as telefone, " +
                 "fornecedor.endereco as endereco, " +
@@ -53,7 +50,6 @@ public class UsuarioDao extends DaoPostgres implements  Dao<Usuario>{
             Fornecedor fornecedor = new Fornecedor();
             fornecedor.setId(rs.getLong("id"));
             fornecedor.setNome(rs.getString("nome"));
-            fornecedor.setTransacao(rs.getBoolean("transacao"));
             fornecedor.setCnpj(rs.getString("cnpj"));
             fornecedor.setTelefone(rs.getString("telefone"));
             fornecedor.setEndereco(rs.getString("endereco"));
@@ -66,10 +62,9 @@ public class UsuarioDao extends DaoPostgres implements  Dao<Usuario>{
 
     @Override
     public void gravar(Usuario value) throws Exception {
-        String sql = "INSERT INTO usuario (nome, transacao) VALUES (?,?)";
+        String sql = "INSERT INTO usuario (nome) VALUES (?)";
         PreparedStatement ps = getPreparedStatement(sql, true);
         ps.setString(1, value.getNome());
-        ps.setBoolean(2, value.isTransacao());
 
         ps.executeUpdate();
 
@@ -99,11 +94,10 @@ public class UsuarioDao extends DaoPostgres implements  Dao<Usuario>{
 
     @Override
     public void alterar(Usuario value) throws Exception {
-        String sql = "update usuario set nome = ?, transacao = ? where id = ?";
+        String sql = "update usuario set nome = ? where id = ?";
         PreparedStatement ps = getPreparedStatement(sql, false);
         ps.setString(1, value.getNome());
-        ps.setBoolean(2, value.isTransacao());
-        ps.setLong(3, value.getId());
+        ps.setLong(2, value.getId());
         ps.executeUpdate();
 
         if (value instanceof Fornecedor) {

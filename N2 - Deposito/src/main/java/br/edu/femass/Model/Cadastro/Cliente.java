@@ -8,9 +8,6 @@ public class Cliente extends Usuario {
     private String cpf;
 
 
-    public Cliente(){
-        this.transacao = true;
-    }
 
     public String toString(){
         return "(Cliente) "+ this.id +". "+this.nome;
