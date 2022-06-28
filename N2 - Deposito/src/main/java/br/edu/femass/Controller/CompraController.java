@@ -611,10 +611,7 @@ public class CompraController extends MainController implements Initializable {
                     if (Radio_Venda.isSelected()){
                         if(prod.getQtdProduto() < Integer.parseInt(TxtQtdProdutoItem.getText())){
                             JOptionPane.showMessageDialog(null, "Quantidade de Produtos Indisponível");
-                            System.out.println("Quantidade de Produtos Indisponível");
                             return;
-                        }else{
-
                         }
                     }
 
