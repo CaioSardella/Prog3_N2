@@ -505,7 +505,7 @@ public class CompraController extends MainController implements Initializable {
         float total_compra=0, total_venda=0;
 
         try {
-            for(Pedido p: pedidoDao.listar()){
+            for(Pedido p : pedidoDao.filtrarData(TxtDataCaixa.getText())){
                 if(p.getSubtotal() < 0){
                     total_compra=total_compra+p.getSubtotal();
                 }
@@ -614,7 +614,7 @@ public class CompraController extends MainController implements Initializable {
                             System.out.println("Quantidade de Produtos Indisponível");
                             return;
                         }else{
-                            itemDao.gravar(item);
+
                         }
                     }
 
@@ -634,10 +634,11 @@ public class CompraController extends MainController implements Initializable {
 
                         System.out.println(prod.getQtdProduto());
                         produtoDao.alterar(prod);
-                        itemDao.gravar(item);
+
                     }
 
                 }
+                itemDao.gravar(item);
         } catch (Exception e) {
                      e.printStackTrace();
             }
